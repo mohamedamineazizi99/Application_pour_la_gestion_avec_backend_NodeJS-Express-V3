@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+      crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <title>Departement</title>
+    <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+      crossorigin="anonymous"
+    >
+  </head>
+  <body>
+
+    <!-- start navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Gestion de Cabinet Médical</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/accueil">Section CLIENT <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a href="/" class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: white;box-shadow: 0 0 0.5em #55efc4;">déconnecter</a>
+        </form>
+      </div>
+    </nav>
+    <!-- end nav bar -->
+
+    <center><h1 class="text-center mt-5">Section CLIENT/Visite Médicale</h1></center>
+
+    <div class="mb-5 ml-5">
+      <a href="/accueil" style="color: white">
+        <button type="button" class="btn btn-lg btn-outline-info"><i class="fas fa-arrow-left"></i>
+          Back
+        </button>
+      </a>
+    </div>
+
+    <!-- <center> -->
+    <h3 id="title-hear" class="text-center mt-5" style="position: absolute;right: 20px;top: 20px;color: #636e72;"> 
+      CIN-Client : <% if(locals.visitem ){%><%=visitem%> <%}%></h3>
+    <div>
+      <!-- start popup -->
+
+      <div class="container col-md-4 mt-5 mb-5" style="padding-bottom: 2vh;">
+
+        <center><button data-toggle="modal" data-target="#myModel" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 btn-lg"  style="box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);background-color: #f1c40f;"><i class="fas fa-folder-plus mr-3"></i>Ajouter Nouvelle Visite Médicale</button></center>
+
+      </div>
+
+      <div id="myModel" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 60%;">
+          <div class="modal-content" style="background-color: #bdc3c7;">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" style="color: black;background-color: white;" >&times;</button>
+            </div>
+            <div class="model-body" style="background-color: #bdc3c7;">
+              <!-- start action in popup -->
+              <div class="container mt-3 mb-3">
+                <!--Section: Content-->
+                <section class="dark-grey-text">
+                  <div class="card">
+                    <div class="card-body">
+                      <!--Grid row-->
+                      <div class="row">
+                        <!--Grid column-->
+                        <div class="col-lg-12">
+                          <!-- Pills panels -->
+                          <div class="tab-content ">
+                            <!--Panel 1-->
+                            <div class="tab-pane fade in show active" id="tabCheckoutBilling123" role="tabpanel">
+                              <!--Card content-->
+                              <form action="/addVisiteMedicale" method="POST">
+                                <div class="row">
+                                  <!--Grid column-->
+                                  <div class="col-md-6" style="display: flex;">
+                                    <!--ID-->
+                                    <h3 class="col-md-6 "><strong for="firstName" >DATE :</strong></h3>
+                                    <input type="text" id="DateInscription" name="DateInscription" class="form-control col-md-6 mb-4" readonly>
+                                  </div>
+                                  <div class="col-md-6 " style="display: flex;">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <!--Grid column-->
+                                  <div class="col-md-6 " style="display: flex;">
+                                    <!--ID-->
+                                    <h3 class="col-md-6 "><strong for="firstName" class="">ID CLIENT :</strong></h3>
+                                    <input type="text" id="ID" name="ID" class="form-control col-md-6" value="<%=ID%>" readonly>
+                                  </div>
+                                  <!--Grid column-->
+                                  <!--Grid column-->
+                                  <div class="col-md-6 " style="display: flex;">
+                                    <!--CIN-->
+                                    <h3 class="col-md-6 "><strong for="lastName" class="">CIN CLIENT :</strong></h3>
+                                    <input type="text" id="visitem" name="visitem" class="form-control col-md-6" value="<%=visitem%>" readonly><br>
+                                  </div>
+                                  <!--Grid column-->
+                                </div>
+                                <hr>
+                                <!--1-Effets secondaires-->
+                                <strong>1-Effets secondaires</strong>
+                                <textarea type="text" id="EffetsSecondaires" name="EffetsSecondaires" placeholder="Effets secondaires" class="form-control mb-4" rows="4"></textarea>
+                                <!--Grid row-->
+                                <div class="row">
+                                  <!--Grid column-->
+                                  <div class="col-md-6 mb-4">
+                                    <!--2-Tension Artérielle-->
+                                    <strong>2-Tension Artérielle</strong>
+                                    <input type="text" id="TensionArterielle" name="TensionArterielle" class="form-control" placeholder="Tension artérielle">
+                                  </div>
+                                  <!--Grid column-->
+                                  <!--Grid column-->
+                                  <div class="col-md-6 mb-2">
+                                    <!--3-Fréquence Cardiaque-->
+                                    <strong>3-Fréquence Cardiaque</strong>
+                                    <input type="text" id="FrequenceCardiaque" name="FrequenceCardiaque" class="form-control" placeholder="Fréquence cardiaque">
+                                  </div>
+                                  <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <!--Grid row-->
+                                <div class="row">
+                                  <!--Grid column-->
+                                  <div class="col-md-6 mb-4">
+                                    <!--4-Température Corporelle-->
+                                    <strong>4-Température Corporelle</strong>
+                                    <input type="text" id="TemperatureCorporelle" name="TemperatureCorporelle" class="form-control" placeholder="Température corporelle">
+                                  </div>
+                                  <!--Grid column-->
+                                  <!--Grid column-->
+                                  <div class="col-md-6 mb-2">
+                                    <!--5-Poids Corporel-->
+                                    <strong>5-Poids Corporel</strong>
+                                    <input type="text" id="PoidsCorporel" name="PoidsCorporel" class="form-control"  placeholder="Poids Corporel">
+                                  </div>
+                                  <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <!--6-Le diagnostic du médecin-->
+                                <strong>6-Le diagnostic du médecin</strong>
+                                <textarea type="text" id="DiagnosticMedecin" name="DiagnosticMedecin" class="form-control mb-4" placeholder="Le diagnostic du médecin" rows="4"></textarea>
+                                <!--7-les médicament-->
+                                <strong>7-les médicament</strong>
+                                <textarea type="text" id="Mdicamentes" name="Mdicamentes" class="form-control mb-4" placeholder="les médicament" rows="4"></textarea>
+                                <hr>
+                                <button id="btn-visit" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 btn-lg" onclick="this.style.backgroundColor='#e67e22'" style="box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);">Ajouter Nouvelle Visite</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!--Grid column-->
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <!-- end action in popup -->
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-error" data-dismiss="modal" >close</button>
+            </div>
+          </div>        
+        </div>
+      </div>
+
+      <!-- end popup -->
+    </div>
+
+    <!-- end action -->
+
+    <section class="mt-5 mb-5" style="margin-bottom: 40px;padding-bottom: 28vh">
+      <div class="container" style="position: relative !important;">
+        <table class="table" class="">
+            <thead class="">
+              <tr>
+                <th scope="col">ID-Visit</th>
+                <th scope="col">DATE-Visit</th>
+                <!-- <th scope="col">Effets secondaires</th> -->
+                <!-- <th scope="col">Tension artérielle</th> -->
+                <!-- <th scope="col">Fréquence cardiaque</th> -->
+                <!-- <th scope="col">Température corporelle</th> -->
+                <!-- <th scope="col">Poids Corporel</th> -->
+                <th scope="col">Le diagnostic du médecin</th>
+                <!-- <th scope="col">les médicament</th> -->
+                <th scope="col">ID_Client</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="tablTbody">
+                <% listVisit.forEach(d => { %>
+                    <% if(d.ID_Client === ID ){%> 
+                    <tr>
+                        <th scope="row"><%= d.ID %></th>
+                        <td><%= d.DateInscription %></td>
+                        <!-- <td><%= d.EffetsSecondaires %></td> -->
+                        <!-- <td><%= d.TensionArterielle %></td> -->
+                        <!-- <td><%= d.FrequenceCardiaque %></td> -->
+                        <!-- <td><%= d.TemperatureCorporelle %></td> -->
+                        <!-- <td><%= d.PoidsCorporel %></td> -->
+                        <td><%= d.DiagnosticMedecin %></td>
+                        <!-- <td><%= d.Mdicamentes %></td> -->
+                        <td><%= d.ID_Client %></td>
+                        <td>
+                          <div>
+                            <a href="/editvisitmidical/<%=visitem%>/<%=ID%>/<%= d.ID %>" style="color: white">
+                              <button type="button" class="btn btn-success"><i class="fas fa-eye"></i>
+                                Afficher les détails
+                              </button>
+                            </a>
+                          </div>
+                        </td>
+                    </tr>
+                    <%}%>
+                <% }) %>
+            </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section class="mt-5">
+      <!-- start fouter -->
+      <!-- <div style="background-color: red;bottom: 0px !important;width: 100%;position: relative;"> -->
+      <div style="bottom: 0px;width: 100%;">
+        <center>
+          <!-- Footer -->
+          <!-- <footer class="page-footer font-small cyan darken-3" style="background-color: #a5b1c2;bottom: 0px;width: 100%;"> -->
+          <footer class="page-footer font-small cyan darken-3" style="background-color: #a5b1c2;">
+        
+            <!-- Footer Elements -->
+            <div class="container">
+              <!-- Grid row-->
+              <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-12 py-5">
+                  <div class="mb-5 flex-center">
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                      <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                      <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Google +-->
+                    <a class="gplus-ic">
+                      <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Linkedin -->
+                    <a class="li-ic">
+                      <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                      <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Pinterest-->
+                  </div>
+                </div>
+                <!-- Grid column -->
+              </div>
+              <!-- Grid row-->
+            </div>
+            <!-- Footer Elements -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+              <a href="#"> Taoufiq RHOUAS</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+          <!-- Footer -->
+        </center>
+      </div>
+    </section>
+
+    <!-- end fouter -->
+
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#company').click(function(){
+          alert('thes');
+          $('#company-new').slideToggle(1000);
+        });
+        var currentdate = new Date(); 
+        var datetime = currentdate.getDate() + "/"
+          + (currentdate.getMonth()+1)  + "/" 
+          + currentdate.getFullYear() ;  
+        $('#DateInscription').val(datetime);
+      });
+    </script>
+  </body>
+</html>

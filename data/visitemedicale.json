@@ -1,0 +1,26 @@
+[
+    {
+        "ID": 1,
+        "DateInscription": "11/4/2020",
+        "EffetsSecondaires": "Effets secondaires visit 1",
+        "TensionArterielle": "10/6",
+        "FrequenceCardiaque": "300s",
+        "TemperatureCorporelle": "38s",
+        "PoidsCorporel": "80kg",
+        "DiagnosticMedecin": "Le diagnostic du médecin visit 1",
+        "Mdicamentes": " les médicament visit 1",
+        "ID_Client": "1-HHrh"
+    },
+    {
+        "ID": 2,
+        "DateInscription": "11/4/2020",
+        "EffetsSecondaires": "Effets secondaires visit 2",
+        "TensionArterielle": "8/3",
+        "FrequenceCardiaque": "400s",
+        "TemperatureCorporelle": "37s",
+        "PoidsCorporel": "60kg",
+        "DiagnosticMedecin": "Le diagnostic du médecin visit 2",
+        "Mdicamentes": "les médicament visit 2",
+        "ID_Client": "1-HHrh"
+    }
+]
